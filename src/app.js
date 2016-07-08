@@ -5,7 +5,6 @@ var oclazyload = require('oclazyload');
 var service = require('./service/service');
 
 var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'oc.lazyLoad', 'commonService']);
-var $script = require('./assets/script.min.js');
 
 var config = require('./config/config.js');
 
@@ -14,7 +13,7 @@ function getRouter(page, name, supName) {
     var defaultRouter = {
         url: '/' + name,
         templateProvider: ['$templateCache', '$q', function($templateCache, $q) {
-            return window.cache['page/' + pageName + '/' + name + '.html'];
+            return window.htmlFragmentscache['page/' + pageName + '/' + name + '.html'];
         }],
         controller: 'myController',
         resolve: {

@@ -84,7 +84,7 @@ Html2JsPlugin.prototype = {
             });        }
 
         function wrap(filepath, html) {
-            return 'window.cache = window.cache || {};window.cache[\'' + unix(filepath) + '\']=' + escape(html) +';';
+            return 'window.htmlFragmentscache = window.htmlFragmentscache || {};window.htmlFragmentscache[\'' + unix(filepath) + '\']=' + escape(html) +';';
         }
 
         function escape(html) {

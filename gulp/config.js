@@ -10,8 +10,7 @@ exports.path = {
 	// 若新增一个页面，需添加一条入口配置，原则上异步加载
 	js: {
 		index: ['./src/page/index/controller.js'],
-		dialog: ['./src/page/dialog/controller.js'],
-        // 二级路由入口文件chunk名必须是一级路由加二级路由，遵循驼峰命名规范
-        dialogIndex: ['./src/page/dialog/index/controller.js'],
+		// 二级路由入口文件chunk名必须是一级路由加二级路由，遵循驼峰命名规范
+		index_dialog: ['./src/page/index/dialog/controller.js']
 	}
 };

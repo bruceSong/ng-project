@@ -36,8 +36,7 @@ module.exports = function(options) {
 	    if (history[1] === 'page') {
 	    	var jsPath = baseJsPath + history[0] + '.js';
 	    } else {
-	    	var fileName = history[0].slice(0, 1).toUpperCase() + history[0].slice(1);
-	    	var jsPath = baseJsPath + history[1] + fileName + '.js';
+	    	var jsPath = baseJsPath + history[1] + '_' + history[0] + '.js';
 	    }
 	    var jsFile = fs.readFileSync(jsPath);
 	    jsFile = jsFile.toString() + file.contents.toString();

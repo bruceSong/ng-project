@@ -8,13 +8,10 @@ module.exports = {
     publicPath: '',// 无需改写，正式发布时，会用webpack output.publicPath替换该值
     pageConfig: {
         'index': {
-            'pageJsHashName': 'index'
-        },
-        'dialog': {
-            'pageJsHashName': 'dialog',
+            'pageJsHashName': 'index',
             'subPage': {
-                'index': {
-                    'pageJsHashName': 'dialogIndex'
+                'dialog': {
+                    'pageJsHashName': 'index_dialog'
                 }
             }
         }

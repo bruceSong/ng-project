@@ -1,6 +1,9 @@
-body {
-	background-color: #f00;
+.dialog-sidebar {
+    width: 200px;
+    height: 1000px;
+    float: left;
 }
-button {
-    transform: rotate(90deg);
+.dialog-content {
+    height: 1000px;
+    margin-left: 210px;
 }
