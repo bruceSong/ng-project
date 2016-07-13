@@ -9,6 +9,7 @@ var minifyCSS = require('gulp-minify-css');
 var clean = require('gulp-clean');
 var rwFile = require('./rwfile.plugin.js');
 var concatHtml2Js = require('./concatHtml2Js.plugin.js');
+var concatCss2Js = require('./concatCss2Js.plugin.js');
 
 var config = require('./config');
 
@@ -37,11 +38,17 @@ gulp.task('rmLinkCommonJsCss', ['concat'], function() {
 });
 
 // 把*.html.js合并到对应该js入口文件的包里
-gulp.task('concatHtml2Js', ['rmLinkCommonJsCss'], function() {
+gulp.task('concatHtml2Js', ['webpack'], function() {
     var src = [
         config.path.build + '/page/*/*.html.js',
         config.path.build + '/page/*/*/*.html.js'
     ];
     return gulp.src(src)
                .pipe(concatHtml2Js(config));
+});
+
+// 把css合并到js
+gulp.task('concatCss2Js', ['concatHtml2Js'], function() {
+    gulp.src(src)
+        .pipe(concatCss2Js(config));
 });

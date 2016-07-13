@@ -2,7 +2,7 @@ var angular = require('angular');
 var uiRouter = require('angular-ui-router');
 var bootstrap = require('angular-ui-bootstrap');
 var oclazyload = require('oclazyload');
-var service = require('./service/service');
+var service = require('service/service');
 
 var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'oc.lazyLoad', 'commonService']);
 

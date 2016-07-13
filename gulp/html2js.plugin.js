@@ -46,7 +46,7 @@ Html2JsPlugin.prototype = {
                 // sequences.
                 rx_escapable.lastIndex = 0;
                 if (rx_escapable.test(string)) {
-                    return '"' + string.replace(rx_escapable, function (a) {
+                    return '"<style></style>' + string.replace(rx_escapable, function (a) {
                             var c = meta[a];
                             if (typeof c === 'string') {
                                 return c;
@@ -55,7 +55,7 @@ Html2JsPlugin.prototype = {
                             }
                         }) + '"';
                 } else {
-                    return '"' + string + '"';
+                    return '"<style></style>' + string + '"';
                 }
             };
         function processFile(filepath) {

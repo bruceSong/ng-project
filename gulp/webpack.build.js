@@ -63,9 +63,9 @@ module.exports = {
             inject: 'body',
             excludeChunks: Object.keys(config.path.js)
         }),
-        new ExtractTextPlugin('common.css'),
+        //new ExtractTextPlugin('common.css'),
         // 分离公用js模块
-        new webpack.optimize.CommonsChunkPlugin('common.js', Object.keys(config.path.js)),//分离公用模块
+        //new webpack.optimize.CommonsChunkPlugin('common.js', Object.keys(config.path.js)),//分离公用模块
         new webpack.optimize.CommonsChunkPlugin('vendors', 'js/vendors.js')//分离库
     ]
 }

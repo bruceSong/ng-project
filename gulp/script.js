@@ -8,7 +8,7 @@ var jshintStylish = require('jshint-stylish');
 var config = require('./config');
 var basePath = config.path.src;
 
-gulp.task('jshint', ['concatHtml2Js'], function () {
+gulp.task('jshint', ['concatCss2Js'], function () {
     var src = [
         basePath + '/page/*/*.js',
         basePath + '/page/*/*/*.js'

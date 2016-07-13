@@ -2,18 +2,18 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = [
   {
     test: /\.css$/,
-    loader: ExtractTextPlugin.extract('style-loader', 'css!postcss')
+    loader: ExtractTextPlugin.extract('css!postcss')
   },
   {
     test: /\.less$/,
-    loader: ExtractTextPlugin.extract('style-loader', 'css!postcss!less')
+    loader: ExtractTextPlugin.extract('css!postcss!less')
   },
   {
     test: /\.(png|jpg|jpeg|gif|webp|svg)$/,
     loader: 'url-loader?name=images/[name].[hash:8].[ext]&limit=8192' // <8k的图片，输出为base64 dataurl
   },
   {
-    test: /\.(ttf|otf|woff|eot)$/,
+    test: /\.(ttf|otf|woff|woff2|eot)$/,
     loader: 'url-loader?name=fonts/[name].[hash:8].[ext]&limit=1024'
   },
   {

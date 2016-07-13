@@ -12,7 +12,7 @@ var src = Object.keys(config.path.js).map(function(v, i) {
     return buildPath + '/js/' + v + '.js';
 });
 
-gulp.task('md5:step:one', ['concatHtml2Js'], function() {
+gulp.task('md5:step:one', ['concatCss2Js'], function() {
     return gulp.src([buildPath + '/*.css', buildPath + '/*.js'])
         .pipe(rev())
         .pipe(gulp.dest(buildPath))
