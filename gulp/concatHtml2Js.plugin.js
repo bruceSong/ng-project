@@ -38,9 +38,13 @@ module.exports = function(options) {
 	    } else {
 	    	var jsPath = baseJsPath + history[1] + '_' + history[0] + '.js';
 	    }
-	    var jsFile = fs.readFileSync(jsPath);
-	    jsFile = jsFile.toString() + file.contents.toString();
-	    fs.writeFileSync(jsPath, jsFile);
+	    fs.exists(jsPath, function(result) {
+	    	if (result) {
+	    		var jsFile = fs.readFileSync(jsPath);
+			    jsFile = jsFile.toString() + file.contents.toString();
+			    fs.writeFileSync(jsPath, jsFile);
+	    	}
+	    });
 
 	    this.push(file);
 	    cb();
