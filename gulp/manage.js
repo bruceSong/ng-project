@@ -216,9 +216,7 @@ gulp.task('rm', function() {
                     fs.unlinkSync(curPath);
                 }
             });
-            fs.rmdir(pagePath, function(err) {
-                console.log(err);
-            });
+            fs.rmdir(pagePath);
         }
     }
 });
