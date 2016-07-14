@@ -1,1 +1,1 @@
-		entryName: ['./src/page/entryPath/controller.js']
+        entryName: ['./src/page/entryPath/controller.js']
