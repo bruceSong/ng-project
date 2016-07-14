@@ -47,7 +47,7 @@ gulp.task('add', function() {
             }
             gulpConfigPark.push(line);
         });
-        fs.writeFile(gulpConfigPath, gulpConfigPark.join('\r'), function() {
+        fs.writeFile(gulpConfigPath, gulpConfigPark.join('\r\n'), function() {
             gutil.log(chalk.cyan('write gulp/config.js successfully'));
         });
 
@@ -110,7 +110,7 @@ gulp.task('add', function() {
             }
             routeConfigPark.push(line);
         });
-        fs.writeFile(srcConfigPath, routeConfigPark.join('\r'), function() {
+        fs.writeFile(srcConfigPath, routeConfigPark.join('\r\n'), function() {
             gutil.log(chalk.cyan('write src/config/config.js successfully'));
         });
 
