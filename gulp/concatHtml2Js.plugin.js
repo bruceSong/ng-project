@@ -6,6 +6,7 @@
 var fs = require('fs');
 var through = require('through2');
 var gutil = require('gulp-util');
+var path = require('path');
 var PluginError = gutil.PluginError;
 
 module.exports = function(options) {
@@ -31,13 +32,14 @@ module.exports = function(options) {
 	    // 求取js文件路径
 	    var baseJsPath = options.path.build + '/js/';
 	    var history = file.history[0].replace('.html.js', '');
-	    history = history.split('\\').reverse();
+	    history = history.split(/\\|\//).reverse();
 	    history.shift();
 	    if (history[1] === 'page') {
 	    	var jsPath = baseJsPath + history[0] + '.js';
 	    } else {
 	    	var jsPath = baseJsPath + history[1] + '_' + history[0] + '.js';
 	    }
+		jsPath = path.join(__dirname, '../', jsPath);
 	    fs.exists(jsPath, function(result) {
 	    	if (result) {
 	    		var jsFile = fs.readFileSync(jsPath);
