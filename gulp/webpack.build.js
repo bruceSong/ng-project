@@ -16,7 +16,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     entry: extend({
         app: [config.path.src + '/app.js'],
-        vendors: ['angular', 'angular-ui-router', 'angular-ui-bootstrap', 'oclazyload']
+        vendors: ['underscore','jquery', 'angular', 'angular-ui-router', 'angular-ui-bootstrap', 'oclazyload']
     }, config.path.js),
     output: {
         path: __dirname + config.path.build,
@@ -31,10 +31,15 @@ module.exports = {
         loaders: loaders
     },
     //devtool: 'source-map',
-    postcss: function() {
-      return [autoprefixer];
+    postcss: function () {
+        return [autoprefixer];
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+        }),
         new Html2JsPlugin([
             'page'
         ], {
@@ -49,11 +54,11 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({
             minimize: true,
             compress: {
-              warnings: false,
-              drop_console: true
+                warnings: false,
+                drop_console: true
             },
             output: {
-              comments: false
+                comments: false
             }
         }),
         // html模板自动注入打包后的文件

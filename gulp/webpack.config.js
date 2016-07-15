@@ -14,7 +14,7 @@ var loaders = require('./loaders');
 module.exports = {
     entry: extend({
         app: [config.path.src + '/app.js'],
-        vendors: ['angular', 'angular-ui-router', 'angular-ui-bootstrap', 'oclazyload']
+        vendors: ['underscore','jquery','angular', 'angular-ui-router', 'angular-ui-bootstrap', 'oclazyload']
     }, config.path.js),
     output: {
         path: __dirname + config.path.build,
@@ -32,6 +32,11 @@ module.exports = {
       return [autoprefixer];
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+        }),
         new Html2JsPlugin([
             'page'
         ], {
@@ -49,10 +54,10 @@ module.exports = {
             filename: './index.html',
             inject: 'body',
             excludeChunks: Object.keys(config.path.js)
-        }),
+        })//,
         //new ExtractTextPlugin('common.css'),
         // 分离公用js模块
         //new webpack.optimize.CommonsChunkPlugin('common.js', Object.keys(config.path.js)),//分离公用模块
-        new webpack.optimize.CommonsChunkPlugin('vendors', 'js/vendors.js')//分离库
+        //new webpack.optimize.CommonsChunkPlugin('vendors', 'js/vendors.js')//分离库
     ]
 }

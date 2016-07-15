@@ -28,7 +28,7 @@ gulp.task('add', function() {
         }
         // 读写gulp/config.js
         var gulpConfig = fs.readFileSync(gulpConfigPath, 'utf8');
-        gulpConfig = gulpConfig.toString().split(/\r\n|\r|\n/);
+        gulpConfig = gulpConfig.toString().split(/\r\n|\n|\r/);
 
         var toInsert = false;
         var gulpConfigPark = [];
@@ -53,7 +53,7 @@ gulp.task('add', function() {
 
         // 读写src/config/config.js
         var routeConfig = fs.readFileSync(srcConfigPath, 'utf8');
-        routeConfig = routeConfig.toString().split(/\r\n|\r|\n/);
+        routeConfig = routeConfig.toString().split(/\r\n|\n|\r/);
         var routeConfigPark = [];
         var toInsert = false;
         routeConfig.forEach(function(line, i) {
@@ -77,7 +77,7 @@ gulp.task('add', function() {
                     if (page.length === 2) {
                         hash = hash.replace(/@subpage/g, page[1]);
                     }
-                    
+
                     routeConfigPark.push(hash);
 
                     toInsert = false;
@@ -106,7 +106,7 @@ gulp.task('add', function() {
                         toInsert = false;
                     }
                 }
-                
+
             }
             routeConfigPark.push(line);
         });
@@ -195,7 +195,7 @@ gulp.task('rm', function() {
 
         var srcConfigCon = fs.readFileSync(srcConfigPath);
         srcConfigCon = srcConfigCon.toString();
-        
+
 
         if (page.length === 1) {
             var pattern = new RegExp(',*\\\s*\\\'' + options.k + '\\\'([^\\\{\\\}]*)\\\{([^\\\{\\\}]+)\\\}');
@@ -216,7 +216,9 @@ gulp.task('rm', function() {
                     fs.unlinkSync(curPath);
                 }
             });
-            fs.rmdir(pagePath);
+            fs.rmdir(pagePath, function(err) {
+                console.log(err);
+            });
         }
     }
 });

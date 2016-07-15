@@ -4,7 +4,6 @@
  */
 'use strict';
 var fs = require('fs');
-var path = require('path');
 var through = require('through2');
 var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
@@ -60,12 +59,11 @@ module.exports = function(options) {
 	    }
 
 	    // 求取js文件路径
-	    var filename = file.history[0].replace('.css', '').split(/\\|\//).slice(-1)[0];
+	    var filename = file.history[0].replace('.css', '').split('\\').slice(-1)[0];
 	    var content = file.contents.toString();
 	    content = quote(content);
 
-	    var jsPath = options.path.build + '/js/' + filename + '.js';
-		jsPath = path.join(__dirname, '../', jsPath);
+	    var jsPath = options.path.build + '/js/' + filename + '.js'; 
 	    var jsContent = fs.readFileSync(jsPath);
 	    jsContent = jsContent.toString();
 	    jsContent = jsContent.replace('<style></style>', '<style>' + content + '</style>');
