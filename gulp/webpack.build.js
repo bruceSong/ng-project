@@ -68,6 +68,13 @@ module.exports = {
             inject: 'body',
             excludeChunks: Object.keys(config.path.js)
         }),
+        // 线上jsp配置
+        /*new HtmlWebpackPlugin({
+            template: './src/index.jsp',
+            filename: './index.jsp',
+            inject: 'body',
+            excludeChunks: Object.keys(config.path.js)
+        }),*/
         //new ExtractTextPlugin('common.css'),
         // 分离公用js模块
         //new webpack.optimize.CommonsChunkPlugin('common.js', Object.keys(config.path.js)),//分离公用模块

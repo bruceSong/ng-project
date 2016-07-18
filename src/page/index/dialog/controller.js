@@ -1,6 +1,4 @@
 require('./dialog.css');
-
-
 var ngDialog = require('components/ngDialog/ngDialog');
 angular.module('app', ['ngDialog']).controller('indexDialogController', function($scope, ngDialog) {
 	var hash = location.hash.replace('#/', '');

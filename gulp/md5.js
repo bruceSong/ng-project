@@ -21,7 +21,7 @@ gulp.task('md5:step:one', ['concatCss2Js'], function() {
 });
 
 gulp.task('co:setp:one', ['md5:step:one'], function() {
-    return gulp.src([buildPath + '/rev/*.json', buildPath + '/*.html'])
+    return gulp.src([buildPath + '/rev/*.json', buildPath + '/*.html', buildPath + '/*.jsp'])
         .pipe(collector({
             replaceReved: true
         }))
@@ -38,7 +38,7 @@ gulp.task('md5:step:two', ['co:setp:one'], function() {
 });
 
 gulp.task('co:setp:two', ['md5:step:two'], function() {
-    return gulp.src([buildPath + '/rev/*.json', buildPath + '/*.html'])
+    return gulp.src([buildPath + '/rev/*.json', buildPath + '/*.html', buildPath + '/*.jsp'])
         .pipe(collector({
             replaceReved: true
         }))
@@ -54,7 +54,7 @@ gulp.task('md5:step:three', ['asynchash'], function() {
 });
 
 gulp.task('co:setp:three', ['md5:step:three'], function() {
-    return gulp.src([buildPath + '/rev/*.json', buildPath + '/*.html'])
+    return gulp.src([buildPath + '/rev/*.json', buildPath + '/*.html', buildPath + '/*.jsp'])
         .pipe(collector({
             replaceReved: true
         }))

@@ -1,0 +1,12 @@
+{
+    "proxies": [
+        {
+            "path": "/(login|resources|logout|g/api|getcaptcha)",
+            "proxy": "172.31.103.107:8080"
+        },
+        {
+            "path": "/(op/api|op/s/api)",
+            "proxy": "172.31.103.107"
+        }
+    ]
+}

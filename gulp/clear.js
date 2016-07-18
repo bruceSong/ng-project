@@ -1,5 +1,5 @@
 /**
- *  监听src目录下文件变化
+ *  正式编译时清除临时文件
  */
 
 var gulp = require('gulp');

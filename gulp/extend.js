@@ -1,3 +1,7 @@
+/**
+ * 对像深拷贝
+ */
+
 function extend(dest, props) {
     if (!props) return dest;
 

@@ -50,6 +50,7 @@
     "ng-annotate-loader": "^0.0.10",
     "oclazyload": "^0.6.3",
     "postcss-loader": "^0.8.2",
+    "proxy-middleware": "^0.15.0",
     "raw-loader": "^0.5.1",
     "style-loader": "~0.13.1",
     "through2": "^0.6.3",

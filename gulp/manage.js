@@ -223,6 +223,17 @@ gulp.task('rm', function() {
     }
 });
 
+gulp.task('rename', function() {
+    if (options.k) {
+        var page = options.k.split('_').slice(0, 2);
+        // 文件名是否合法
+        if (!(/^[a-z]+_*[a-z]+2[a-z]+_*[a-z]+$/).test(options.k)) {
+            gutil.log(chalk.red('the page name is made of a-z'));
+            return false;
+        }
+    }
+});
+
 function check(page) {
     // 文件名是否合法
     if (!(/^[a-z]+_*[a-z]+$/).test(options.k)) {

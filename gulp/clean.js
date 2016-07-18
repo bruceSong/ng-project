@@ -1,5 +1,5 @@
 /**
- *  监听src目录下文件变化
+ *  清除build目录
  */
 
 var gulp = require('gulp');
