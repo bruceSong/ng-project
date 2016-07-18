@@ -7,8 +7,9 @@ wrench.readdirSyncRecursive('./gulp').filter(function (file) {
     require('./gulp/' + file);
 });
 
-gulp.task('dev', ['server', 'devClear'], function() {
+gulp.task('dev', ['devClear'], function() {
     gulp.run('watch');
+    gulp.run('server');
 });
 gulp.task('build', ['clean', 'clear']);
 

@@ -14,7 +14,7 @@ var loaders = require('./loaders');
 module.exports = {
     entry: extend({
         app: [config.path.src + '/app.js'],
-        vendors: ['underscore','jquery','angular', 'angular-ui-router', 'angular-ui-bootstrap', 'oclazyload']
+        vendors: ['angular', 'angular-ui-router', 'angular-ui-bootstrap', 'oclazyload']
     }, config.path.js),
     output: {
         path: __dirname + config.path.build,

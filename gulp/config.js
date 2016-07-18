@@ -13,7 +13,6 @@ exports.path = {
 	js: {
 		index: ['./src/page/index/controller.js'],
 		// 二级路由入口文件chunk名必须是一级路由加二级路由，遵循驼峰命名规范
-		index_dialog: ['./src/page/index/dialog/controller.js'],
-		home: ['./src/page/home/controller.js']
+		index_dialog: ['./src/page/index/dialog/controller.js']
 	}
 };

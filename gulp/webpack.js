@@ -31,8 +31,13 @@ gulp.task('webpack', function() {
         if (global.writeFilePath.indexOf('page') !== -1) {
             var entry = {};
             for (var key in allEntry) {
-                if (global.writeFilePath.indexOf(key) !== -1) {
+                var pageName = key.split('_');
+                if (pageName.length === 1 && global.writeFilePath.indexOf(pageName[0]) !== -1) {
                     entry[key] = allEntry[key];
+                } else {
+                    if (global.writeFilePath.indexOf(pageName[0]) !== -1 && global.writeFilePath.indexOf(pageName[1]) !== -1) {
+                        entry[key] = allEntry[key];
+                    }
                 }
             }
             webpackConfig.entry = entry;

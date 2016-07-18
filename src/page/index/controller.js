@@ -1,5 +1,5 @@
 var ngDialog = require('components/ngDialog/ngDialog');
-require('./index.css');
+require('./index.css'); 
 angular.module('app', ['ngDialog']).controller('indexController', function($scope, ngDialog) {
 	var hash = location.hash.replace('#/', '');
 	$scope.clickToOpen = function () {
