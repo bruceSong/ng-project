@@ -14,7 +14,8 @@
     
 ## 本地服务代理
 开发过程使用`browser-sync`做为本地服务，根目录下`proxy.json`为配置文件，以下示例为汇聚op项目的代理配置      
-`{
+```javascript
+{
     "proxies": [
         {
             "path": "/(login|resources|logout|g/api|getcaptcha)",
@@ -25,7 +26,8 @@
             "proxy": "172.31.103.107"
         }
     ]
-}`      
+}      
+```
 `http://localhost:8080/login`将被转发到`http://172.31.103.107:8080/login`
 
 ## 手动创建一级页面
