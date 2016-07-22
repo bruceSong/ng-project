@@ -33,11 +33,13 @@
 例如：新增页面`page/index`，那么`path.js.index = ['./src/page/index/controller.js']`        
 说明：`path.js`为打包配置，上例中`index`页面用到的`js`会被打包成`index-0d8d1875a9.js`
 2. `src/config/config.js`下`pageConfig`添加一条配置，接上例，则配置如下：       
-`pageConfig: {
+```javascript
+pageConfig: {
         index: {        
             pageJSHashName: 'index'     
         }       
-}`      
+}      
+```
 `index`为页面名称，`pageJSHashName`无需改动，其值也为页面名称       
 说明：该配置的主要作用为把编译过程中生成的md5戳同步到异步加载的模块
 3. 按照`ng-demo`中的示例添加页面，如`page/index`下包含`controller.js`、`index.html`、`router.js`、`index.css`，样式表可没有       
