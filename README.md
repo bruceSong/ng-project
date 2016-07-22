@@ -11,6 +11,22 @@
 * 删除应用
     * 一级页面：`gulp rm -k subway`，`subway`为页面名
     * 二级页面：`gulp rm -k subway_dialog`，`subway_dialog`为一级页面名加二级页面名，用下划线分割
+    
+## 本地服务代理
+开发过程使用`browser-sync`做为本地服务，根目录下`proxy.json`为配置文件，以下示例为汇聚op项目的代理配置      
+`{
+    "proxies": [
+        {
+            "path": "/(login|resources|logout|g/api|getcaptcha)",
+            "proxy": "172.31.103.107:8080"
+        },
+        {
+            "path": "/(op/api|op/s/api)",
+            "proxy": "172.31.103.107"
+        }
+    ]
+}`      
+`http://localhost:8080/login`将被转发到`http://172.31.103.107:8080/login`
 
 ## 手动创建一级页面
 1. `gulp/config.js`下`path.js`添加一条配置，`key`为页面名称，`value`为`controller`路径      
@@ -59,9 +75,6 @@
             * index
                 * index.html.js
                 * dialog/dialog.html.js
-        * common.css&nbsp;&nbsp;&nbsp;&nbsp;//从各业务模块剥离出来的公用css模块
-        * common.js&nbsp;&nbsp;&nbsp;&nbsp;//从各业务模块剥离出来的公用js模块
-        * common.js.css&nbsp;&nbsp;&nbsp;&nbsp;//和common.css内容一致，webpack打包机制缺陷产生的垃圾文件
         * index.css&nbsp;&nbsp;&nbsp;&nbsp;//首页用到的css模块
         * index.html&nbsp;&nbsp;&nbsp;&nbsp;//入口页面，需同步引用的打包文件会自动注入到该文件
         * index_dailog.css&nbsp;&nbsp;&nbsp;&nbsp;//首页下dialog页面用到的css模块
