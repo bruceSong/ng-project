@@ -59,7 +59,7 @@ module.exports = function(options) {
 	    }
 
 	    // 求取js文件路径
-	    var filename = file.history[0].replace('.css', '').split('\\').slice(-1)[0];
+	    var filename = file.history[0].replace('.css', '').split(/\\|\//g).slice(-1)[0];
 	    var content = file.contents.toString();
 	    content = quote(content);
 
