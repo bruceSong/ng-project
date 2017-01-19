@@ -13,6 +13,7 @@ function getRouter(page, name, supName) {
     var defaultRouter = {
         url: '/' + name,
         templateProvider: ['$templateCache', '$q', function($templateCache, $q) {
+            console.log(window.htmlFragmentscache);
             return window.htmlFragmentscache['page/' + pageName + '/' + name + '.html'];
         }],
         controller: 'myController',

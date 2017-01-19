@@ -7,7 +7,9 @@ var commonService = angular.module('commonService', []);
 commonService.factory('$hash', function() {
     var factory = {};
     factory.getParams = function() {
-        return location.hash.replace(/(^#\/?)|(\/?$)/g, '').split('/');
+      var _hash = location.hash.replace(/!\//, '');
+      console.log(_hash);
+        return _hash.replace(/(^#\/?)|(\/?$)/g, '').split('/');
     }
     return factory;
 });
