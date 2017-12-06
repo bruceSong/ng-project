@@ -9,12 +9,12 @@ var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 var path = require('path');
 
-module.exports = function (options) {
+module.exports = function(options) {
     if (!options) {
         throw new PluginError('concatHtml2Js', 'Missing options asnychash');
     }
 
-    return through.obj(function (file, enc, cb) {
+    return through.obj(function(file, enc, cb) {
         // ignore empty files
         if (file.isNull()) {
             this.emit('error', new PluginError('concatHtml2Js', 'file is empty'));
@@ -32,7 +32,7 @@ module.exports = function (options) {
         // 求取js文件路径
         var baseJsPath = options.path.build + '/js/';
         var history = file.history[0].replace('.html.js', '');
-        history = history.split('\\').reverse();
+        history = history.split(/\\|\//).reverse();
         history.shift();
         if (history[1] === 'page') {
             var jsPath = baseJsPath + history[0] + '.js';
